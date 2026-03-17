@@ -3,16 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Project page for a research paper." />
-    <title>Paper Title | Project Page</title>
+    <meta
+      name="description"
+      content="Out of Sight but Not Out of Mind: Hybrid Memory for Dynamic Video World Models"
+    />
+    <title>Hybrid Memory for Dynamic Video World Models</title>
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
     <header class="topbar">
       <div class="container topbar__inner">
-        <a class="brand" href="#top">Paper Title</a>
+        <a class="brand" href="#top">Hybrid Memory</a>
         <nav class="nav">
           <a class="nav__link" href="#intro">Intro</a>
+          <a class="nav__link" href="#dataset">Dataset</a>
           <a class="nav__link" href="#method">Method</a>
           <a class="nav__link" href="#demo">Demo</a>
           <a class="nav__link" href="#bibtex">BibTeX</a>
@@ -23,15 +27,26 @@
     <main id="top">
       <section class="hero">
         <div class="container">
-          <h1 class="title">Paper Title: A Short, Clear Subtitle</h1>
+          <h1 class="title">Out of Sight but Not Out of Mind: Hybrid Memory for Dynamic Video World Models</h1>
           <p class="authors">
-            <span class="authors__item"><a href="#" target="_blank" rel="noreferrer">Author A</a></span>
+            <span class="authors__item">Kaijin Chen</span>
             <span class="authors__sep">·</span>
-            <span class="authors__item"><a href="#" target="_blank" rel="noreferrer">Author B</a></span>
+            <span class="authors__item">Dingkang Liang</span>
             <span class="authors__sep">·</span>
-            <span class="authors__item">Author C</span>
+            <span class="authors__item">Xin Zhou</span>
+            <span class="authors__sep">·</span>
+            <span class="authors__item">Yikang Ding</span>
+            <span class="authors__sep">·</span>
+            <span class="authors__item">Xiaoqiang Liu</span>
+            <span class="authors__sep">·</span>
+            <span class="authors__item">Pengfei Wan</span>
+            <span class="authors__sep">·</span>
+            <span class="authors__item">Xiang Bai</span>
           </p>
-          <p class="affils">Institution 1 · Institution 2</p>
+          <p class="affils">Huazhong University of Science and Technology · Kling Team, Kuaishou Technology</p>
+          <p class="muted" style="margin: 0 0 10px;">
+            Work done during an internship at Kling Team, Kuaishou Technology.
+          </p>
 
           <div class="cta">
             <a class="btn" href="https://github.com/your-org/your-repo" target="_blank" rel="noreferrer">
@@ -45,15 +60,35 @@
             </a>
           </div>
 
-          <div class="teaser">
-            <img src="assets/img/teaser.svg" alt="Teaser figure" />
+          <div class="grid two" style="margin-top: 10px;">
+            <div class="teaser">
+              <img src="assets/img/teaser.svg" alt="Teaser figure" />
+            </div>
+            <div class="card">
+              <div class="media">
+                <video class="video" controls preload="metadata" poster="assets/img/demo_teaser_poster.svg">
+                  <source src="assets/videos/teaser_demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <p class="caption">Teaser demo (replace <code>assets/videos/teaser_demo.mp4</code>).</p>
+              </div>
+            </div>
           </div>
 
           <div class="abstract card">
             <h2 class="h2">Abstract</h2>
             <p>
-              Replace this abstract with your paper abstract. Keep it concise (3–7 sentences) and focus on the
-              problem, key idea, and main results.
+              Video world models have shown immense potential in simulating the physical world, yet existing memory
+              mechanisms primarily treat environments as static canvases. When dynamic subjects hide out of sight and
+              later re-emerge, current methods often struggle, leading to frozen, distorted, or vanishing subjects. We
+              introduce <strong>Hybrid Memory</strong>, a paradigm requiring models to act as precise archivists for
+              static backgrounds and vigilant trackers for dynamic subjects, ensuring motion continuity during
+              out-of-view intervals. To facilitate research, we construct <strong>HM-World</strong>, a large-scale
+              dataset with 59K high-fidelity clips, decoupled camera/subject trajectories, 17 scenes, 49 subjects, and
+              designed exit-entry events to evaluate hybrid coherence. We further propose <strong>HyDRA</strong>, a
+              memory architecture that compresses context into memory tokens and retrieves relevant cues via
+              spatiotemporal relevance-driven attention. Experiments on HM-World show strong improvements in dynamic
+              subject consistency and overall generation quality.
             </p>
           </div>
         </div>
@@ -63,64 +98,95 @@
         <div class="container">
           <div class="section__header">
             <h2 class="h2">Intro</h2>
-            <p class="muted">A quick overview of the task and why it matters.</p>
+            <p class="muted">Why hybrid memory matters for video world models.</p>
           </div>
 
-          <div class="grid two">
-            <div class="card">
-              <h3 class="h3">What we do</h3>
-              <p>
-                Write 2–4 short paragraphs to explain your setting, the challenge, and your key intuition.
-                You can also add a short bullet list here.
-              </p>
-              <ul class="bullets">
-                <li>Problem setting in one line.</li>
-                <li>Your key insight in one line.</li>
-                <li>Primary result in one line.</li>
-              </ul>
-            </div>
+          <div class="card">
+            <p>
+              Memory mechanisms are a critical frontier for video world models, because memory capacity directly
+              impacts spatial and temporal consistency under viewpoint shifts and long-horizon generation. Recent work
+              improves memory via retrieval and compression, but often treats the environment as a static canvas. In
+              the real world, scenes are populated by dynamic subjects governed by independent motion logic.
+            </p>
+            <p>
+              When dynamic subjects exit the camera’s field of view and later re-enter, static-centric memory methods
+              frequently fail: returning subjects become frozen, distorted, or vanish. We propose
+              <strong>Hybrid Memory</strong>, which requires the model to anchor static backgrounds while continuously
+              tracking and extrapolating dynamic subjects during out-of-view intervals, so that identity and motion
+              remain coherent upon re-entry.
+            </p>
 
-            <div class="card">
-              <div class="media">
-                <video class="video" controls preload="metadata" poster="assets/img/intro_poster.svg">
-                  <source src="assets/videos/intro.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Intro video (replace `assets/videos/intro.mp4`).</p>
-              </div>
-            </div>
+            <figure class="figure">
+              <img class="figure__img" src="assets/img/intro_fig.svg" alt="Hybrid memory intro figure" />
+              <figcaption class="caption">
+                Hybrid Memory demands static background consistency, while preserving motion and appearance coherence
+                of dynamic subjects during out-of-view intervals.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <section id="method" class="section section--alt">
+      <section id="dataset" class="section section--alt">
         <div class="container">
           <div class="section__header">
-            <h2 class="h2">Method</h2>
-            <p class="muted">A high-level method explanation + video.</p>
+            <h2 class="h2">HM-World Dataset</h2>
+            <p class="muted">A benchmark dedicated to hybrid memory with exit-entry events.</p>
           </div>
 
-          <div class="grid two">
-            <div class="card">
-              <h3 class="h3">Pipeline</h3>
-              <p>
-                Describe the method at a level that matches your target audience. If you have a method figure,
-                replace the teaser image above or add another image here.
-              </p>
-              <div class="callout">
-                <strong>Tip:</strong> Prefer 3–6 key steps; link to code in the GitHub repo for details.
-              </div>
-            </div>
+          <div class="card">
+            <p>
+              Natural videos with clean, frequent exit-and-re-entry events are scarce, making systematic evaluation of
+              hybrid memory difficult. We introduce <strong>HM-World</strong>, a large-scale dataset purpose-built to
+              train and evaluate hybrid memory for video world models.
+            </p>
+            <p>
+              HM-World contains <strong>59,225</strong> high-fidelity clips rendered in Unreal Engine 5 with decoupled
+              camera trajectories and subject motions, creating many natural out-of-view intervals. The dataset covers
+              <strong>17</strong> diverse scenes and <strong>49</strong> distinct subjects (humans and animals),
+              designed subject trajectories, and <strong>28</strong> camera motion patterns that induce exit-entry
+              events. Each clip is annotated with camera poses, per-frame subject positions, and timestamps of
+              exit/entry events.
+            </p>
 
-            <div class="card">
-              <div class="media">
-                <video class="video" controls preload="metadata" poster="assets/img/method_poster.svg">
-                  <source src="assets/videos/method.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Method video (replace `assets/videos/method.mp4`).</p>
-              </div>
-            </div>
+            <figure class="figure">
+              <img class="figure__img" src="assets/img/dataset_fig.svg" alt="HM-World dataset construction figure" />
+              <figcaption class="caption">
+                HM-World construction: combine scenes, subjects, subject trajectories, and camera trajectories to
+                render clips with rich exit-entry dynamics.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="section">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="h2">HyDRA Method</h2>
+            <p class="muted">Hybrid Dynamic Retrieval Attention for consistent re-entry.</p>
+          </div>
+
+          <div class="card">
+            <p>
+              We propose <strong>HyDRA</strong> (<strong>Hy</strong>brid <strong>D</strong>ynamic
+              <strong>R</strong>etrieval <strong>A</strong>ttention), a memory mechanism designed to preserve dynamic
+              subject identity and motion while maintaining static background coherence under camera motion.
+            </p>
+            <p>
+              HyDRA first compresses context latents into compact, motion-aware <strong>memory tokens</strong> using a
+              3D-convolution-based memory tokenizer. During generation, a <strong>spatiotemporal relevance-driven</strong>
+              retrieval module computes affinity between target queries and memory keys, selects top-k relevant tokens,
+              and fuses them with a local temporal window to stabilize denoising. This selective retrieval helps the
+              model “rediscover” hidden subjects and continue their trajectories after out-of-view intervals.
+            </p>
+
+            <figure class="figure">
+              <img class="figure__img" src="assets/img/method_fig.svg" alt="HyDRA architecture figure" />
+              <figcaption class="caption">
+                Overview of HyDRA: memory tokenization + dynamic retrieval attention to recall motion and appearance cues.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -129,7 +195,7 @@
         <div class="container">
           <div class="section__header">
             <h2 class="h2">Demo</h2>
-            <p class="muted">Qualitative results / comparisons.</p>
+            <p class="muted">More qualitative results (replace the MP4s below).</p>
           </div>
 
           <div class="grid three">
@@ -163,7 +229,8 @@
           </div>
 
           <div class="card note">
-            <strong>Optional:</strong> If your videos are hosted on YouTube/Bilibili, replace the `<video>` blocks with an `<iframe>`.
+            <strong>Optional:</strong> If hosted on YouTube/Bilibili, replace the <code>&lt;video&gt;</code> blocks with an
+            <code>&lt;iframe&gt;</code>.
           </div>
         </div>
       </section>
@@ -181,8 +248,8 @@
               <button class="btn btn--small" type="button" data-copy="#bibtex-code">Copy</button>
             </div>
             <pre class="code"><code id="bibtex-code">@article{yourkey2026papertitle,
-  title   = {Paper Title: A Short, Clear Subtitle},
-  author  = {Author A and Author B and Author C},
+  title   = {Out of Sight but Not Out of Mind: Hybrid Memory for Dynamic Video World Models},
+  author  = {Chen, Kaijin and Liang, Dingkang and Zhou, Xin and Ding, Yikang and Liu, Xiaoqiang and Wan, Pengfei and Bai, Xiang},
   journal = {arXiv preprint arXiv:XXXX.XXXXX},
   year    = {2026}
 }</code></pre>
@@ -202,4 +269,3 @@
     <script src="assets/script.js"></script>
   </body>
 </html>
-

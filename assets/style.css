@@ -119,6 +119,16 @@ a{color:inherit}
 }
 .caption{margin:0; color:var(--muted); font-size:14px;}
 
+.figure{margin:14px 0 0;}
+.figure__img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+}
+
 .code{
   margin:0;
   padding:14px;
@@ -137,4 +147,3 @@ code{
 
 .footer{padding:22px 0 40px;}
 .footer__inner{border-top:1px solid var(--border); padding-top:16px;}
-
