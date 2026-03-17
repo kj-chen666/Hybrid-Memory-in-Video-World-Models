@@ -15,7 +15,7 @@
       <div class="container topbar__inner">
         <a class="brand" href="#top">Hybrid Memory</a>
         <nav class="nav">
-          <a class="nav__link" href="#intro">Intro</a>
+          <a class="nav__link" href="#introduction">Introduction</a>
           <a class="nav__link" href="#dataset">Dataset</a>
           <a class="nav__link" href="#method">Method</a>
           <a class="nav__link" href="#demo">Generation Results</a>
@@ -29,27 +29,45 @@
         <div class="container">
           <h1 class="title">Out of Sight but Not Out of Mind: Hybrid Memory for Dynamic Video World Models</h1>
           <p class="authors">
-            <span class="authors__item">Kaijin Chen</span>
+            <span class="authors__item">
+              <a href="https://github.com/kj-chen666" target="_blank" rel="noreferrer">Kaijin Chen</a><sup class="authors__affil">1</sup><sup class="authors__note">*</sup>
+            </span>
             <span class="authors__sep">·</span>
-            <span class="authors__item">Dingkang Liang</span>
+            <span class="authors__item">
+              <a href="#" target="_blank" rel="noreferrer">Dingkang Liang</a><sup class="authors__affil">1</sup>
+            </span>
             <span class="authors__sep">·</span>
-            <span class="authors__item">Xin Zhou</span>
+            <span class="authors__item">
+              <a href="#" target="_blank" rel="noreferrer">Xin Zhou</a><sup class="authors__affil">1</sup>
+            </span>
             <span class="authors__sep">·</span>
-            <span class="authors__item">Yikang Ding</span>
+            <span class="authors__item">
+              <a href="#" target="_blank" rel="noreferrer">Yikang Ding</a><sup class="authors__affil">2</sup>
+            </span>
             <span class="authors__sep">·</span>
-            <span class="authors__item">Xiaoqiang Liu</span>
+            <span class="authors__item">
+              <a href="#" target="_blank" rel="noreferrer">Xiaoqiang Liu</a><sup class="authors__affil">2</sup>
+            </span>
             <span class="authors__sep">·</span>
-            <span class="authors__item">Pengfei Wan</span>
+            <span class="authors__item">
+              <a href="#" target="_blank" rel="noreferrer">Pengfei Wan</a><sup class="authors__affil">2</sup>
+            </span>
             <span class="authors__sep">·</span>
-            <span class="authors__item">Xiang Bai</span>
+            <span class="authors__item">
+              <a href="#" target="_blank" rel="noreferrer">Xiang Bai</a><sup class="authors__affil">1</sup>
+            </span>
           </p>
-          <p class="affils">Huazhong University of Science and Technology · Kling Team, Kuaishou Technology</p>
+          <p class="affils">
+            <span class="affils__item"><sup>1</sup> Huazhong University of Science and Technology</span>
+            <span class="affils__sep">·</span>
+            <span class="affils__item"><sup>2</sup> Kling Team, Kuaishou Technology</span>
+          </p>
           <p class="muted" style="margin: 0 0 10px;">
-            Work done during an internship at Kling Team, Kuaishou Technology.
+            <span class="note-marker" aria-hidden="true">*</span> Work done during an internship at Kling Team, Kuaishou Technology.
           </p>
 
           <div class="cta">
-            <a class="btn" href="https://github.com/your-org/your-repo" target="_blank" rel="noreferrer">
+            <a class="btn" href="https://github.com/kj-chen666" target="_blank" rel="noreferrer">
               <img class="btn__icon" src="assets/icons/github.svg" alt="" aria-hidden="true" /> GitHub
             </a>
             <a class="btn" href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noreferrer">
@@ -62,11 +80,13 @@
 
           <div class="hero-demo card">
             <div class="media">
-              <video class="video video--hero" controls preload="metadata" poster="assets/demo_frame.png">
-                <source src="assets/demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <p class="caption">Demo</p>
+              <div class="video-frame">
+                <video class="video video--hero" controls preload="metadata" poster="assets/demo_frame.png">
+                  <source src="assets/demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <p class="caption">Demo of "Out of Sight but Not Out of Mind: Hybrid Memory for Dynamic Video World Models"</p>
             </div>
           </div>
 
@@ -76,14 +96,10 @@
               Video world models have shown immense potential in simulating the physical world, yet existing memory
               mechanisms primarily treat environments as static canvases. When dynamic subjects hide out of sight and
               later re-emerge, current methods often struggle, leading to frozen, distorted, or vanishing subjects. We
-              introduce <strong>Hybrid Memory</strong>, a paradigm requiring models to act as precise archivists for
+              introduce <strong>Hybrid Memory</strong>, a novel paradigm requiring models to simultaneously act as precise archivists for
               static backgrounds and vigilant trackers for dynamic subjects, ensuring motion continuity during
-              out-of-view intervals. To facilitate research, we construct <strong>HM-World</strong>, a large-scale
-              dataset with 59K high-fidelity clips, decoupled camera/subject trajectories, 17 scenes, 49 subjects, and
-              designed exit-entry events to evaluate hybrid coherence. We further propose <strong>HyDRA</strong>, a
-              memory architecture that compresses context into memory tokens and retrieves relevant cues via
-              spatiotemporal relevance-driven attention. Experiments on HM-World show strong improvements in dynamic
-              subject consistency and overall generation quality.
+              out-of-view intervals. To facilitate research in this direction, we construct <strong>HM-World</strong>, the first large-scale video dataset dedicated to hybrid memory. It features 59K high-fidelity clips with decoupled camera and subject trajectories, encompassing 17 diverse scenes, 49 distinct subjects, and meticulously designed exit-entry events to rigorously evaluate hybrid coherence.
+              Furthermore, we propose <strong>HyDRA</strong>, a specialized memory architecture that compresses contexts into memory tokens and utilizes a spatiotemporal relevance-driven retrieval mechanism. By selectively attending to relevant motion cues, HyDRA effectively preserves the identity and motion of hidden subjects. Extensive experiments on HM-World demonstrate that our method significantly outperforms state-of-the-art approaches in both dynamic subject consistency and overall generation quality.
             </p>
           </div>
         </div>
@@ -97,24 +113,16 @@
 
           <div class="card">
             <p>
-              Memory mechanisms are a critical frontier for video world models, because memory capacity directly
-              impacts spatial and temporal consistency under viewpoint shifts and long-horizon generation. Recent work
-              improves memory via retrieval and compression, but often treats the environment as a static canvas. In
-              the real world, scenes are populated by dynamic subjects governed by independent motion logic.
+              While recent video world models excel at simulating static environments, they share a critical blind spot: the physical world is dynamic. When moving subjects exit the camera's field of view and later re-emerge, current models often lose track of them—rendering returning subjects as frozen statues, distorted phantoms, or letting them vanish entirely.
             </p>
             <p>
-              When dynamic subjects exit the camera’s field of view and later re-enter, static-centric memory methods
-              frequently fail: returning subjects become frozen, distorted, or vanish. We propose
-              <strong>Hybrid Memory</strong>, which requires the model to anchor static backgrounds while continuously
-              tracking and extrapolating dynamic subjects during out-of-view intervals, so that identity and motion
-              remain coherent upon re-entry.
+              To bridge this gap, we introduce <strong>Hybrid Memory</strong>, a novel paradigm that requires models to simultaneously act as precise archivists for static backgrounds and vigilant trackers for dynamic subjects. A true world model must not only remember a subject's appearance but also mentally predict its unseen trajectory, ensuring visual and motion continuity even during out-of-view intervals.
             </p>
 
             <figure class="figure">
               <img class="figure__img" src="assets/intro.png" alt="Hybrid memory intro figure" />
               <figcaption class="caption">
-                Hybrid Memory demands static background consistency, while preserving motion and appearance coherence
-                of dynamic subjects during out-of-view intervals.
+                Hybrid Memory demands the model to maintain static consistency in backgrounds, while simultaneously preserving the motion and appearance consistency of dynamic subjects during out-of-view intervals.
               </figcaption>
             </figure>
           </div>
@@ -125,58 +133,63 @@
         <div class="container">
           <div class="section__header">
             <h2 class="h2">HM-World Dataset</h2>
-            <p class="muted">A benchmark dedicated to hybrid memory with exit-entry events.</p>
+            <p class="muted">A dataset dedicated to hybrid memory.</p>
           </div>
 
           <div class="card">
             <p>
-              Natural videos with clean, frequent exit-and-re-entry events are scarce, making systematic evaluation of
-              hybrid memory difficult. We introduce <strong>HM-World</strong>, a large-scale dataset purpose-built to
-              train and evaluate hybrid memory for video world models.
+              To facilitate research in this new paradigm, we introduce <strong>HM-World</strong>, the first large-scale video dataset purpose-built to train and evaluate hybrid memory capabilities.
+
             </p>
             <p>
               HM-World contains <strong>59,225</strong> high-fidelity clips rendered in Unreal Engine 5 with decoupled
               camera trajectories and subject motions, creating many natural out-of-view intervals. The dataset covers
               <strong>17</strong> diverse scenes and <strong>49</strong> distinct subjects (humans and animals),
-              designed subject trajectories, and <strong>28</strong> camera motion patterns that induce exit-entry
-              events. Each clip is annotated with camera poses, per-frame subject positions, and timestamps of
-              exit/entry events.
+              designed subject trajectories, and <strong>28</strong> back-and-forth camera motions. By creating countless natural instances where subjects slip into unseen margins before re-emerging, HM-World provides a rigorous benchmark for evaluating spatiotemporal coherence in complex dynamic environments.
             </p>
 
             <div class="grid videos4" style="margin-top: 12px;">
               <div class="card card--flat">
                 <div class="media">
-                  <video class="video" controls preload="metadata">
-                    <source src="assets/examples/1.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  <div class="video-frame">
+                    <video class="video" controls preload="metadata">
+                      <source src="assets/examples/1.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                   <p class="caption">Dataset example 1</p>
                 </div>
               </div>
               <div class="card card--flat">
                 <div class="media">
-                  <video class="video" controls preload="metadata">
-                    <source src="assets/examples/2.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  <div class="video-frame">
+                    <video class="video" controls preload="metadata">
+                      <source src="assets/examples/2.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                   <p class="caption">Dataset example 2</p>
                 </div>
               </div>
               <div class="card card--flat">
                 <div class="media">
-                  <video class="video" controls preload="metadata">
-                    <source src="assets/examples/3.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  <div class="video-frame">
+                    <video class="video" controls preload="metadata">
+                      <source src="assets/examples/3.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                   <p class="caption">Dataset example 3</p>
                 </div>
               </div>
               <div class="card card--flat">
                 <div class="media">
-                  <video class="video" controls preload="metadata">
-                    <source src="assets/examples/4.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  <div class="video-frame">
+                    <video class="video" controls preload="metadata">
+                      <source src="assets/examples/4.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                   <p class="caption">Dataset example 4</p>
                 </div>
               </div>
@@ -203,21 +216,18 @@
           <div class="card">
             <p>
               We propose <strong>HyDRA</strong> (<strong>Hy</strong>brid <strong>D</strong>ynamic
-              <strong>R</strong>etrieval <strong>A</strong>ttention), a memory mechanism designed to preserve dynamic
-              subject identity and motion while maintaining static background coherence under camera motion.
+              <strong>R</strong>etrieval <strong>A</strong>ttention), a memory mechanism designed to seek hidden subjects and preserve dynamic consistency while maintaining static background coherence under camera motion.
             </p>
             <p>
-              HyDRA first compresses context latents into compact, motion-aware <strong>memory tokens</strong> using a
-              3D-convolution-based memory tokenizer. During generation, a <strong>spatiotemporal relevance-driven</strong>
-              retrieval module computes affinity between target queries and memory keys, selects top-k relevant tokens,
-              and fuses them with a local temporal window to stabilize denoising. This selective retrieval helps the
+              HyDRA first compresses context latents into compact, motion-aware <strong>memory tokens</strong> using a memory tokenizer. During generation, a <strong>spatiotemporal relevance-driven</strong>
+              retrieval module computes affinity between target queries and memory keys, selects top-k relevant tokens. This selective retrieval pulls crucial motion and appearance cues into the generation process, helps the
               model “rediscover” hidden subjects and continue their trajectories after out-of-view intervals.
             </p>
 
             <figure class="figure">
               <img class="figure__img" src="assets/method.png" alt="HyDRA architecture figure" />
               <figcaption class="caption">
-                Overview of HyDRA: memory tokenization + dynamic retrieval attention to recall motion and appearance cues.
+                Overview of HyDRA: (a) Memory Tokenization Module. (b) Dynamic retrieval attention computes relevance between target query and memory tokens to retrieve the top-k relevant tokens, enabling the model to recall hybrid memory.
               </figcaption>
             </figure>
           </div>
@@ -228,62 +238,74 @@
         <div class="container">
           <div class="section__header">
             <h2 class="h2">Generation Results</h2>
-            <p class="muted">Qualitative results (replace the MP4s below).</p>
+            <!-- <p class="muted">Qualitative results.</p> -->
           </div>
 
           <div class="grid results6">
             <div class="card">
               <div class="media">
-                <video class="video" controls preload="metadata">
-                  <source src="assets/genetation_videos/1.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Result 1</p>
+                <div class="video-frame">
+                  <video class="video" controls preload="metadata">
+                    <source src="assets/genetation_videos/1.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <!-- <p class="caption">Result 1</p> -->
               </div>
             </div>
             <div class="card">
               <div class="media">
-                <video class="video" controls preload="metadata">
-                  <source src="assets/genetation_videos/2.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Result 2</p>
+                <div class="video-frame">
+                  <video class="video" controls preload="metadata">
+                    <source src="assets/genetation_videos/2.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <!-- <p class="caption">Result 2</p> -->
               </div>
             </div>
             <div class="card">
               <div class="media">
-                <video class="video" controls preload="metadata">
-                  <source src="assets/genetation_videos/3.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Result 3</p>
+                <div class="video-frame">
+                  <video class="video" controls preload="metadata">
+                    <source src="assets/genetation_videos/3.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <!-- <p class="caption">Result 3</p> -->
               </div>
             </div>
             <div class="card">
               <div class="media">
-                <video class="video" controls preload="metadata">
-                  <source src="assets/genetation_videos/4.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Result 4</p>
+                <div class="video-frame">
+                  <video class="video" controls preload="metadata">
+                    <source src="assets/genetation_videos/4.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <!-- <p class="caption">Result 4</p> -->
               </div>
             </div>
             <div class="card">
               <div class="media">
-                <video class="video" controls preload="metadata">
-                  <source src="assets/genetation_videos/5.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Result 5</p>
+                <div class="video-frame">
+                  <video class="video" controls preload="metadata">
+                    <source src="assets/genetation_videos/5.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <!-- <p class="caption">Result 5</p> -->
               </div>
             </div>
             <div class="card">
               <div class="media">
-                <video class="video" controls preload="metadata">
-                  <source src="assets/genetation_videos/6.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Result 6</p>
+                <div class="video-frame">
+                  <video class="video" controls preload="metadata">
+                    <source src="assets/genetation_videos/6.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <!-- <p class="caption">Result 6</p> -->
               </div>
             </div>
           </div>
@@ -294,7 +316,7 @@
         <div class="container">
           <div class="section__header">
             <h2 class="h2">BibTeX</h2>
-            <p class="muted">Cite this work.</p>
+            <!-- <p class="muted">Cite this work.</p> -->
           </div>
 
           <div class="card">

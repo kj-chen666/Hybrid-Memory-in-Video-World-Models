@@ -48,12 +48,33 @@ a:hover{text-decoration: underline;}
 
 .hero{padding:52px 0 28px;}
 .hero .container{text-align:center;}
+.hero .abstract{text-align:left;}
 .title{font-size: clamp(28px, 4vw, 44px); line-height:1.1; margin:0 0 10px;}
 .authors{margin:0; color:var(--muted); font-size:16px;}
 .authors__item a{color:var(--text); text-decoration:none; border-bottom:1px solid rgba(37,99,235,.35);}
 .authors__item a:hover{border-bottom-color:var(--accent2);}
 .authors__sep{opacity:.55; padding:0 6px;}
+.authors__affil{
+  font-size: 12px;
+  vertical-align: super;
+  margin-left: 3px;
+  color: var(--muted);
+}
+.authors__note{
+  font-size: 12px;
+  vertical-align: super;
+  margin-left: 2px;
+  color: var(--muted);
+}
 .affils{margin:10px 0 18px; color:var(--muted);}
+.affils__sep{opacity:.55; padding:0 8px;}
+.affils__item sup{margin-right:6px; font-size:12px; vertical-align: super;}
+.note-marker{
+  font-size: inherit;
+  vertical-align: baseline;
+  margin-right: 6px;
+  color: var(--muted);
+}
 
 .cta{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 22px; justify-content:center;}
 .btn{
@@ -104,6 +125,8 @@ a:hover{text-decoration: underline;}
   background: var(--card);
   box-shadow: var(--shadow);
   padding: 16px;
+  text-align: left;
+  min-width: 0;
 }
 .card--flat{
   background: transparent;
@@ -112,6 +135,17 @@ a:hover{text-decoration: underline;}
   padding: 0;
 }
 .card.note{margin-top:16px;}
+.card > p{
+  margin:0 0 12px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  overflow-wrap: break-word;
+}
+.card > p:last-child{margin-bottom:0;}
+.card .h2,.card .h3{text-align:left;}
 
 .bullets{margin:10px 0 0; padding-left:18px; color:var(--muted);}
 .callout{
@@ -123,13 +157,28 @@ a:hover{text-decoration: underline;}
   color: var(--muted);
 }
 
-.media{display:flex; flex-direction:column; gap:10px;}
-.video{
+.media{display:flex; flex-direction:column; gap:10px; min-width:0;}
+.video-frame{
   width:100%;
+  max-width:100%;
   border-radius: 12px;
   border: 1px solid var(--border);
   background: rgba(15,23,42,.04);
+  overflow: hidden;
+  position: relative;
+  clip-path: inset(0 round 12px);
+}
+.video{
+  width:100%;
+  max-width:100%;
+  display:block;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
   aspect-ratio: 16 / 9;
+}
+.video-frame > .video{
+  border-radius: inherit;
 }
 .video--hero{aspect-ratio: 16 / 9;}
 .caption{margin:0; color:var(--muted); font-size:14px; text-align:center;}
