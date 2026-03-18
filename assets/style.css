@@ -116,7 +116,7 @@ a:hover{text-decoration: underline;}
   .grid.two{grid-template-columns: 1fr;}
   .grid.three{grid-template-columns: 1fr;}
 }
-@media (max-width: 720px){
+@media (max-width: 520px){
   .grid.videos4{grid-template-columns: 1fr;}
   .grid.results6{grid-template-columns: 1fr;}
 }
