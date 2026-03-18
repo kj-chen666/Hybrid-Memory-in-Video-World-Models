@@ -115,8 +115,6 @@ a:hover{text-decoration: underline;}
 @media (max-width: 980px){
   .grid.two{grid-template-columns: 1fr;}
   .grid.three{grid-template-columns: 1fr;}
-}
-@media (max-width: 520px){
   .grid.videos4{grid-template-columns: 1fr;}
   .grid.results6{grid-template-columns: 1fr;}
 }
@@ -178,8 +176,6 @@ a:hover{text-decoration: underline;}
   border-radius: 12px;
   background: transparent;
   aspect-ratio: 16 / 9;
-  -webkit-clip-path: inset(0 round 12px);
-  clip-path: inset(0 round 12px);
 }
 .video-frame > .video{
   border-radius: inherit;
