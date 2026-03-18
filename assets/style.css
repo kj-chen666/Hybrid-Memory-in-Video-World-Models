@@ -176,6 +176,8 @@ a:hover{text-decoration: underline;}
   border-radius: 12px;
   background: transparent;
   aspect-ratio: 16 / 9;
+  -webkit-clip-path: inset(0 round 12px);
+  clip-path: inset(0 round 12px);
 }
 .video-frame > .video{
   border-radius: inherit;
