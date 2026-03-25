@@ -99,7 +99,7 @@
               introduce <strong>Hybrid Memory</strong>, a novel paradigm requiring models to simultaneously act as precise archivists for
               static backgrounds and vigilant trackers for dynamic subjects, ensuring motion continuity during
               out-of-view intervals. To facilitate research in this direction, we construct <strong>HM-World</strong>, the first large-scale video dataset dedicated to hybrid memory. It features 59K high-fidelity clips with decoupled camera and subject trajectories, encompassing 17 diverse scenes, 49 distinct subjects, and meticulously designed exit-entry events to rigorously evaluate hybrid coherence.
-              Furthermore, we propose <strong>HyDRA</strong>, a specialized memory architecture that compresses contexts into memory tokens and utilizes a spatiotemporal relevance-driven retrieval mechanism. By selectively attending to relevant motion cues, HyDRA effectively preserves the identity and motion of hidden subjects. Extensive experiments on HM-World demonstrate that our method significantly outperforms state-of-the-art approaches in both dynamic subject consistency and overall generation quality.
+              Furthermore, we propose <strong>HyDRA</strong>, a specialized memory architecture that compresses latents into memory tokens and utilizes a spatiotemporal relevance-driven retrieval mechanism. By selectively attending to relevant motion cues, HyDRA effectively preserves the identity and motion of hidden subjects. Extensive experiments on HM-World demonstrate that our method significantly outperforms state-of-the-art approaches in both dynamic subject consistency and overall generation quality.
             </p>
           </div>
         </div>
@@ -219,7 +219,7 @@
               <strong>R</strong>etrieval <strong>A</strong>ttention), a memory mechanism designed to seek hidden subjects and preserve dynamic consistency while maintaining static background coherence under camera motion.
             </p>
             <p>
-              HyDRA first compresses context latents into compact, motion-aware <strong>memory tokens</strong> using a memory tokenizer. During generation, a <strong>spatiotemporal relevance-driven</strong>
+              HyDRA first compresses latents into compact, motion-aware <strong>memory tokens</strong> using a memory tokenizer. During generation, a <strong>spatiotemporal relevance-driven</strong>
               retrieval module computes affinity between target queries and memory keys, selects top-k relevant tokens. This selective retrieval pulls crucial motion and appearance cues into the generation process, helps the
               model “rediscover” hidden subjects and continue their trajectories after out-of-view intervals.
             </p>
